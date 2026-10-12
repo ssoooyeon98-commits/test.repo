@@ -1824,6 +1824,74 @@ em.hl{font-style:normal;color:var(--accent)}
 .tgt li.on{background:var(--accent);color:#fff}
 .tgt li small{display:block;font-size:12px;font-weight:500;color:#4A4F59}
 @media (max-width:760px){.psn{grid-template-columns:1fr}.tgt li{width:100%!important}}
+
+/* 시장 지형도 */
+.mkt{margin-top:18px}
+.mkt-cap,.phs-cap{margin:0 0 10px;font-size:13px;font-weight:800;color:var(--muted)}
+.mkt-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink);background:#fff;border-radius:0 0 16px 16px}
+.mkt-grid section{padding:16px 16px 18px;border-right:1px solid var(--line)}
+.mkt-grid section:last-child{border-right:0}
+.mkt-k{margin:0 0 12px;font-size:15px;font-weight:800}
+.mkt-k small{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-top:2px}
+.mkt-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.mkt-grid li{font-size:13px;line-height:1.45;color:#4A4F59}
+.mkt-grid li b{display:block;font-size:14px;color:var(--ink)}
+.mkt-grid .gap{background:repeating-linear-gradient(135deg,#F3F6FD 0 8px,#fff 8px 16px);outline:2px dashed var(--accent);outline-offset:-8px;border-radius:0 0 16px 0}
+.mkt-grid .gap .mkt-k{color:var(--accent)}
+.gap-t{margin:0;font-size:15px;font-weight:700;line-height:1.5}
+.gap-o{margin:10px 0 0;font-size:13.5px;font-weight:800;color:var(--accent)}
+@media (max-width:760px){.mkt-grid{grid-template-columns:1fr 1fr}.mkt-grid section:nth-child(2){border-right:0}.mkt-grid section:nth-child(n+3){border-top:1px solid var(--line)}}
+/* 폰 화면 띠 */
+.phs-cap{margin-top:22px}
+.phs{display:flex;gap:14px;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x mandatory}
+.phs figure{flex:0 0 150px;margin:0;scroll-snap-align:start}
+.phs .dw-zoom img{border-radius:16px;border:1px solid rgba(34,37,43,.12);aspect-ratio:9/18.5;object-fit:cover;object-position:top}
+.phs figcaption{display:flex;gap:6px;margin-top:8px;font-size:12.5px;font-weight:700;line-height:1.4}
+.phs figcaption b{flex:none;font-family:var(--display);color:var(--accent)}
+.cmp-media{position:static!important}
+
+/* 영상 콘텐츠: 왼쪽 정보, 오른쪽 영상 */
+.cv2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:44px;align-items:start}
+.cv2-r{position:sticky;top:100px}
+.cv2-vid{position:relative;display:block;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 30px 60px -24px rgba(20,24,40,.35)}
+.cv2-vid img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .4s}
+.cv2-vid:hover img{transform:scale(1.03)}
+.cv2-vid .play{position:absolute;left:50%;top:50%;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:50%;background:rgba(255,255,255,.95)}
+.cv2-vid .play::after{content:"";position:absolute;left:27px;top:22px;border-left:18px solid var(--ink);border-top:12px solid transparent;border-bottom:12px solid transparent}
+.cv2-cap{display:inline-block;margin-top:12px;font-size:13.5px;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--ink)}
+.cv2 .cfacts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cv2 .cb-lead{padding:22px 0}
+.cv2 .cb-q{font-size:clamp(18px,1.8vw,21px)}
+.cv2 .cb-cols{grid-template-columns:1fr}
+.cv2 .cb-col,.cv2 .cb-col+.cb-col{padding:16px 0;border-left:0;border-top:1px solid var(--line)}
+.cv2 .cb-col:first-child{border-top:0}
+@media (max-width:900px){.cv2{grid-template-columns:1fr;gap:24px}.cv2-r{position:static;order:-1}}
+
+/* 전후 비교 장부 */
+.ldg{border-top:2px solid var(--ink)}
+.ldg-hd,.ldg-r{display:grid;grid-template-columns:170px 1fr 1fr 80px;gap:20px;align-items:center}
+.ldg-hd{padding:10px 0;font-size:11.5px;font-weight:800;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--line)}
+.ldg-r{padding:16px 0;border-bottom:1px solid var(--line)}
+.ldg-l{margin:0;font-size:14.5px;font-weight:700}
+.ldg-v{display:flex;align-items:center;gap:10px}
+.ldg-v i{display:block;height:10px;border-radius:2px;background:#D3D7DE;max-width:calc(100% - 90px)}
+.ldg-v b{font-family:var(--display);font-size:18px;white-space:nowrap}
+.ldg-v.a b{color:var(--muted);font-weight:700}
+.ldg-v.b i{background:var(--ink)}
+.ldg-r.hl .ldg-v.b i{background:var(--accent)}.ldg-r.hl .ldg-v.b b{color:var(--accent);font-size:24px}
+.ldg-d{margin:0;text-align:right;font-family:var(--display);font-size:15px;font-weight:800}
+.ldg-r.hl .ldg-d{color:var(--accent)}
+.ldg-note{margin:14px 0 0;font-size:14px;color:#4A4F59}
+.ldg-note a{margin-left:8px;font-weight:700;color:var(--ink);border-bottom:1.5px solid var(--ink);text-decoration:none}
+@media (max-width:760px){.ldg-hd{display:none}.ldg-r{grid-template-columns:1fr 1fr;gap:8px 12px}.ldg-l{grid-column:1/-1}.ldg-d{display:none}}
+
+/* 인용: 아바타·말풍선 제거 → 타이포 인용 */
+.vc .av,.vc-cap .ic{display:none!important}
+.vc{display:block!important}
+.vc .bub{background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important;padding:4px 0 4px 18px!important;border-left:2px solid var(--ink)!important;margin:0!important}
+.vc .bub::before,.vc .bub::after{display:none!important}
+.vc .bub p{font-size:15.5px!important;line-height:1.65!important;font-weight:600}
+.vc figcaption{margin-top:8px!important;font-size:12.5px!important;color:var(--muted)!important}
 </style>
 </head>
 <body>
@@ -2583,7 +2651,7 @@ em.hl{font-style:normal;color:var(--accent)}
        },
        {
         "type": "tline",
-        "cap": "문제를 네 번 다시 정의했어요",
+        "cap": "문제를 다시 정의했어요",
         "items": [
          {
           "d": "1차",
@@ -2819,7 +2887,7 @@ em.hl{font-style:normal;color:var(--accent)}
       "sum": [
        {
         "k": "접근 방식",
-        "t": "설문·인터뷰로 문제를 네 번 다시 정의하고, 사장님을 직접 만나 시범 운영으로 검증했습니다.",
+        "t": "설문·인터뷰로 문제를 다시 정의하고, 사장님을 직접 만나 시범 운영으로 검증했습니다.",
         "to": "research"
        },
        {
@@ -2847,25 +2915,8 @@ em.hl{font-style:normal;color:var(--accent)}
        {
         "id": "research",
         "label": "리서치",
-        "claim": "설문 2회, 인터뷰 11곳, 앱 전수 조사를 거치며 **문제를 네 번 다시 정의**했습니다.",
+        "claim": "설문과 인터뷰, 앱 전수 조사를 거치며 **문제를 다시 정의**했습니다.",
         "visual": [
-         {
-          "type": "nums",
-          "items": [
-           {
-            "v": "152명",
-            "l": "설문 2회 (한강 이용자 90 · 1인 가구 62)"
-           },
-           {
-            "v": "11곳",
-            "l": "인터뷰 (관계 기관 3 · 사장님 8)"
-           },
-           {
-            "v": "4번",
-            "l": "문제 재정의"
-           }
-          ]
-         },
          {
           "type": "rlog",
           "items": [
@@ -2963,30 +3014,6 @@ em.hl{font-style:normal;color:var(--accent)}
             "k": "멘토 · 시의성",
             "h": "한강만의 문제가 아니었다",
             "b": "코로나로 집 배달이 늘어난 상황이었습니다. 시간이 부족하다는 반대도 있었지만, 근거를 들어 문제를 다시 정의하자고 팀을 설득했습니다."
-           }
-          ]
-         },
-         {
-          "type": "tline",
-          "cap": "한 달 동안 네 번 바뀐 문제 정의",
-          "items": [
-           {
-            "d": "1차",
-            "h": "한강의 쓰레기 문제가 심각하다"
-           },
-           {
-            "d": "인터뷰 후",
-            "h": "분리수거보다 쓰레기 양이 문제"
-           },
-           {
-            "d": "중간 발표",
-            "h": "배달 용기·포장이 문제",
-            "b": "근거가 약하다는 피드백"
-           },
-           {
-            "d": "최종",
-            "h": "배달 때 따라오는, 먹지 않는 반찬",
-            "hl": 1
            }
           ]
          }
@@ -3187,7 +3214,7 @@ em.hl{font-style:normal;color:var(--accent)}
      "contrib": "",
      "hero": {
       "kind": "laptop",
-      "img": "images/ongi/p12-screens.jpg",
+      "img": "images/ongi/thumb-screens.jpg",
       "cap": "앱 화면 상세 기획"
      },
      "roles": [
@@ -3499,8 +3526,7 @@ em.hl{font-style:normal;color:var(--accent)}
            },
            {
             "h": "경쟁 서비스를 직접 가입하고 써 봤습니다",
-            "b": "여가·커뮤니티 앱을 실제로 체험하고 후기 영상까지 보며 세 가지를 확인했습니다. 차별점은 무엇인지, 시니어가 돈을 내는 이유는 무엇인지, 사람과 사람을 어떻게 잇는지.",
-            "img": "images/ongi/01.jpg"
+            "b": "여가·커뮤니티 앱을 실제로 체험하고 후기 영상까지 보며 세 가지를 확인했습니다. 차별점은 무엇인지, 시니어가 돈을 내는 이유는 무엇인지, 사람과 사람을 어떻게 잇는지."
            },
            {
             "h": "써 본 경험에서 빈자리를 찾았습니다",
@@ -3511,6 +3537,10 @@ em.hl{font-style:normal;color:var(--accent)}
             "b": "호스트·참여자 흐름을 나눠 온보딩부터 모임 진행까지 와이어프레임을 그렸습니다."
            }
           ]
+         },
+         {
+          "type": "html",
+          "html": "<div class=\"mkt\"><p class=\"mkt-cap\">국내외 시니어 서비스를 직접 써 보고 정리한 지형도<\/p>\n<div class=\"mkt-grid\">\n<section><p class=\"mkt-k\">여가 · 교육<small>액티브 시니어<\/small><\/p><ul><li><b>오뉴<\/b>취미·문화 커뮤니티<\/li><li><b>교원라이프<\/b>교육·여행·문화 프로그램<\/li><li><b>큐리어스<\/b>중장년 지식 공유 커뮤니티<\/li><\/ul><\/section>\n<section><p class=\"mkt-k\">건강 · 돌봄<small>케어 시니어<\/small><\/p><ul><li><b>케어닥<\/b>간병인 매칭·시니어 토탈케어<\/li><li><b>유니메오<\/b>시니어 멘탈헬스케어 챗봇<\/li><li><b>Medisafe<\/b>복약 알림·가족 알림 공유<\/li><li><b>SKT 돌봄<\/b>AI 스피커 기반 돌봄<\/li><\/ul><\/section>\n<section><p class=\"mkt-k\">커뮤니티<small>액티브 시니어<\/small><\/p><ul><li><b>피피<\/b>세대 간 1:1 매칭<\/li><li><b>시놀<\/b>5070 친구 매칭<\/li><\/ul><\/section>\n<section class=\"gap\"><p class=\"mkt-k\">빈자리<small>디펜시브 · 리커버리 시니어<\/small><\/p><p class=\"gap-t\">이 타깃을 위한 서비스가 없었습니다<\/p><p class=\"gap-o\">→ 온기밥상이 들어갈 자리<\/p><\/section>\n<\/div><\/div>"
          }
         ]
        },
@@ -3598,7 +3628,7 @@ em.hl{font-style:normal;color:var(--accent)}
          },
          {
           "type": "shot",
-          "img": "images/ongi/04.jpg",
+          "img": "images/ongi/s-home-1.jpg",
           "t": "홈 화면에 담은 세 가지",
           "notes": [
            "전화 도움 — 막히면 상담사와 바로 연결",
@@ -3634,48 +3664,21 @@ em.hl{font-style:normal;color:var(--accent)}
         "points": [
          "실제 출시나 사용자 테스트 전의 기획 단계입니다."
         ],
-        "visual": {
-         "type": "gallery",
-         "contain": 1,
-         "items": [
-          {
-           "img": "images/ongi/p13-onboarding.jpg",
-           "cap": "온보딩 — 큰 글씨와 단계별 안내"
-          },
-          {
-           "img": "images/ongi/05.jpg",
-           "cap": "'함께 먹어요' 호스트 흐름"
-          }
-         ]
-        }
-       }
-      ],
-      "outputs": [
-       {
-        "type": "slides",
-        "title": "발표 자료 중 핵심 (팀)",
-        "items": [
+        "visual": [
          {
-          "img": "images/ongi/01.jpg",
-          "cap": "국내외 시니어 서비스 비교 — 빈자리 찾기"
+          "type": "html",
+          "html": "<p class=\"phs-cap\">온보딩 — 큰 글씨와 단계별 안내<\/p><div class=\"phs\"><figure>{{img:images/ongi/s-onb-1.jpg|카카오 간편 로그인}}<figcaption><b>1<\/b>카카오 간편 로그인<\/figcaption><\/figure><figure>{{img:images/ongi/s-onb-2.jpg|활동 반경 설정}}<figcaption><b>2<\/b>활동 반경 설정<\/figcaption><\/figure><figure>{{img:images/ongi/s-onb-3.jpg|선호 음식 설정}}<figcaption><b>3<\/b>선호 음식 설정<\/figcaption><\/figure><figure>{{img:images/ongi/s-onb-4.jpg|선호 활동 설정}}<figcaption><b>4<\/b>선호 활동 설정<\/figcaption><\/figure><\/div>"
          },
          {
-          "img": "images/ongi/p08-journey.jpg",
-          "cap": "사용자 여정과 주요 서비스 흐름"
-         },
-         {
-          "img": "images/ongi/p12-screens.jpg",
-          "cap": "AI 적용 설계와 화면 상세 기획"
-         },
-         {
-          "img": "images/ongi/idea-05-summary.jpg",
-          "cap": "개인 아이디어 기획안 — 첫 방향 제안"
+          "type": "html",
+          "html": "<p class=\"phs-cap\">'함께 먹어요' 호스트 흐름<\/p><div class=\"phs\"><figure>{{img:images/ongi/s-host-1.jpg|소분·요리 중 선택}}<figcaption><b>1<\/b>소분·요리 중 선택<\/figcaption><\/figure><figure>{{img:images/ongi/s-host-2.jpg|날짜·시간·장소}}<figcaption><b>2<\/b>날짜·시간·장소<\/figcaption><\/figure><figure>{{img:images/ongi/s-host-3.jpg|메뉴·재료 선택}}<figcaption><b>3<\/b>메뉴·재료 선택<\/figcaption><\/figure><figure>{{img:images/ongi/s-host-4.jpg|채팅방 진입}}<figcaption><b>4<\/b>채팅방 진입<\/figcaption><\/figure><figure>{{img:images/ongi/s-host-5.jpg|발주 요청}}<figcaption><b>5<\/b>발주 요청<\/figcaption><\/figure><figure>{{img:images/ongi/s-host-6.jpg|발주 결제}}<figcaption><b>6<\/b>발주 결제<\/figcaption><\/figure><figure>{{img:images/ongi/s-host-7.jpg|배송 현황 확인}}<figcaption><b>7<\/b>배송 현황 확인<\/figcaption><\/figure><\/div>"
          }
         ]
        }
-      ]
+      ],
+      "outputs": []
      },
-     "thumb": "images/ongi/p12-screens.jpg",
+     "thumb": "images/ongi/thumb-screens.jpg",
      "hookOld": "혼밥·비싼 식재료·끊긴 관계를 **한 상**에 차리다"
     },
     {
@@ -6285,47 +6288,8 @@ em.hl{font-style:normal;color:var(--accent)}
         "claim": "같은 촬영을 더 짧게 하고, **다섯 배** 값을 받게 됐습니다.",
         "visual": [
          {
-          "type": "kpis",
-          "items": [
-           {
-            "ic": "coin",
-            "l": "촬영 1건 수익",
-            "from": "5만 원",
-            "to": "25만 원",
-            "d": "5배",
-            "hl": 1
-           },
-           {
-            "ic": "clock",
-            "l": "1건에 드는 시간",
-            "from": "9시간",
-            "to": "5시간"
-           },
-           {
-            "ic": "chat",
-            "l": "예약 확정까지 메시지",
-            "from": "10번",
-            "to": "3번",
-            "d": "−70%"
-           },
-           {
-            "ic": "pen",
-            "l": "1건 보정 시간",
-            "from": "4시간",
-            "to": "30분",
-            "d": "−83%"
-           }
-          ]
-         },
-         {
-          "type": "rating",
-          "src": "크몽",
-          "href": "https://kmong.com/@포에버릿",
-          "score": "5.0",
-          "n": "11",
-          "sat": "100%",
-          "cnt": "50건+",
-          "cntl": "유료 촬영"
+          "type": "html",
+          "html": "<div class=\"ldg\"><div class=\"ldg-hd\"><span><\/span><span>처음<\/span><span>바꾼 뒤<\/span><\/div><div class=\"ldg-r hl\"><p class=\"ldg-l\">촬영 1건 수익<\/p><div class=\"ldg-v a\"><i style=\"width:20%\"><\/i><b>5만 원<\/b><\/div><div class=\"ldg-v b\"><i style=\"width:100%\"><\/i><b>25만 원<\/b><\/div><p class=\"ldg-d\">5배<\/p><\/div><div class=\"ldg-r\"><p class=\"ldg-l\">1건에 드는 시간<\/p><div class=\"ldg-v a\"><i style=\"width:100%\"><\/i><b>9시간<\/b><\/div><div class=\"ldg-v b\"><i style=\"width:56%\"><\/i><b>5시간<\/b><\/div><p class=\"ldg-d\">−4시간<\/p><\/div><div class=\"ldg-r\"><p class=\"ldg-l\">예약 확정까지 메시지<\/p><div class=\"ldg-v a\"><i style=\"width:100%\"><\/i><b>10번<\/b><\/div><div class=\"ldg-v b\"><i style=\"width:30%\"><\/i><b>3번<\/b><\/div><p class=\"ldg-d\">−70%<\/p><\/div><div class=\"ldg-r\"><p class=\"ldg-l\">1건 보정 시간<\/p><div class=\"ldg-v a\"><i style=\"width:100%\"><\/i><b>4시간<\/b><\/div><div class=\"ldg-v b\"><i style=\"width:12.5%\"><\/i><b>30분<\/b><\/div><p class=\"ldg-d\">−83%<\/p><\/div><\/div><p class=\"ldg-note\">크몽 평점 <b>5.0<\/b> (리뷰 11개) · 만족도 <b>100%<\/b> · 유료 촬영 <b>50건+<\/b> <a href=\"https://kmong.com/@포에버릿\" target=\"_blank\" rel=\"noopener\">크몽에서 보기 ↗<\/a><\/p>"
          },
          {
           "type": "links",
@@ -7096,13 +7060,15 @@ em.hl{font-style:normal;color:var(--accent)}
       var SK = function (key) { for (var z = 0; z < v.sum.length; z++) if (v.sum[z].k === key) return z; return -1; };
       var cf = [['역할', t.role], ['인원', t.team], ['기여도', t.contrib], ['기간', t.period]].filter(function (x) { return x[1]; });
       var card = function (key, cls, label) { var z = SK(key); if (z < 0) return ''; return '<article class="cs-c ' + cls + '"><p class="cs-k">' + (label || key) + '</p><p class="cs-t">' + B(q + '.sum.' + z + '.t', v.sum[z].t) + '</p></article>'; };
-      h += '<dl class="cfacts">' + cf.map(function (x) { return '<div><dt>' + x[0] + '</dt><dd>' + esc(x[1]) + '</dd></div>'; }).join('') + '</dl>' +
+      var vid = (v.media && v.media[0] && v.media[0].kind === 'video') ? v.media[0] : null;
+      h += (vid ? '<div class="cv2"><div class="cv2-l">' : '') + '<dl class="cfacts">' + cf.map(function (x) { return '<div><dt>' + x[0] + '</dt><dd>' + esc(x[1]) + '</dd></div>'; }).join('') + '</dl>' +
         (function () { var zi = SK('기획 의도'), cols = [];
           if (v.tasks) cols.push(['맡은 일', '<ul>' + v.tasks.map(function (x, k) { return '<li>' + B(q + '.tasks.' + k, x) + '</li>'; }).join('') + '</ul>', '']);
           [['만든 방식', ''], ['결과', ' res']].forEach(function (m) { var z = SK(m[0]); if (z >= 0) cols.push([m[0], '<p>' + B(q + '.sum.' + z + '.t', v.sum[z].t) + '</p>', m[1]]); });
           return '<div class="cbrief">' + (zi >= 0 ? '<div class="cb-lead"><p class="cb-k">기획 의도</p><p class="cb-q">' + B(q + '.sum.' + zi + '.t', v.sum[zi].t) + '</p></div>' : '') +
             '<div class="cb-cols">' + cols.map(function (c, k) { return '<section class="cb-col' + c[2] + '"><p class="cb-k"><span>' + pad(k + 1) + '</span>' + c[0] + '</p>' + c[1] + '</section>'; }).join('') + '</div></div>'; })() +
-        '<div class="cmp-media">' + (v.media || []).map(function (b, k) { return blk(b, q + '.media.' + k); }).join('') + '</div>';
+        (vid ? '</div><div class="cv2-r"><a class="cv2-vid" href="' + esc(vid.href || '#') + '" target="_blank" rel="noopener" aria-label="영상 보기"><img src="' + esc(vid.img) + '" alt=""><i class="play" aria-hidden="true"></i></a><a class="cv2-cap" href="' + esc(vid.href || '#') + '" target="_blank" rel="noopener">' + esc(vid.cap || 'YouTube에서 보기') + ' ↗</a>' + (v.media.length > 1 ? '<div class="cmp-media">' + v.media.slice(1).map(function (b, k) { return blk(b, q + '.media.' + (k + 1)); }).join('') + '</div>' : '') + '</div></div>'
+          : '<div class="cmp-media">' + (v.media || []).map(function (b, k) { return blk(b, q + '.media.' + k); }).join('') + '</div>');
       if (v.extra && v.extra.length) h += '<div class="cmp-extra">' + v.extra.map(function (b, k) { return blk(b, q + '.extra.' + k); }).join('') + '</div>';
       h += '<footer class="d-foot"><a href="#/projects/' + at.i + '">← ' + esc(a.ko) + ' 목록</a><a class="next" href="#/e/' + nt.id + '">다음: ' + esc(nt.title) + ' →</a></footer></div>';
       return h;
