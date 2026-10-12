@@ -1484,7 +1484,7 @@ em.hl{font-style:normal;color:var(--accent)}
 @media (max-width:760px){.ab2{grid-template-columns:1fr}}
 
 /* 콘텐츠 상세: 역할·업무·성과가 한눈에 */
-.cfacts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0 0 18px;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--line)}
+.cfacts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;border-top:1.5px solid var(--ink);border-bottom:1px solid var(--line)}
 .cfacts>div{padding:14px 16px 16px 0}
 .cfacts dt{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
 .cfacts dd{margin:6px 0 0;font-size:15.5px;font-weight:700;line-height:1.45}
@@ -1499,6 +1499,20 @@ em.hl{font-style:normal;color:var(--accent)}
 .cs-c.cs-res{background:var(--ink);border-color:var(--ink)}
 .cs-c.cs-res .cs-k{color:rgba(255,255,255,.6)}
 .cs-c.cs-res .cs-t{color:#fff;font-weight:700;font-size:17px}
+.cbrief{margin:6px 0 0}
+.cb-lead{padding:30px 0 30px;border-bottom:1px solid var(--line)}
+.cb-k{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em}
+.cb-k span{font-family:var(--display);color:var(--accent)}
+.cb-q{margin:0;max-width:30em;font-size:clamp(20px,2.3vw,26px);font-weight:800;line-height:1.5;letter-spacing:-.02em;color:var(--ink)}
+.cb-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-bottom:1px solid var(--line)}
+.cb-col{padding:24px 28px 26px 0}
+.cb-col+.cb-col{padding-left:28px;border-left:1px solid var(--line)}
+.cb-col p:not(.cb-k){margin:0;font-size:15.5px;line-height:1.7;color:var(--ink)}
+.cb-col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.cb-col li{position:relative;padding-left:14px;font-size:15.5px;line-height:1.6}
+.cb-col li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;border-radius:50%;background:var(--ink)}
+.cb-col.res p:not(.cb-k){font-weight:800}
+@media (max-width:760px){.cb-cols{grid-template-columns:1fr}.cb-col,.cb-col+.cb-col{padding:18px 0;border-left:0;border-top:1px solid var(--line)}.cb-col:first-child{border-top:0}}
 .compact .cmp-media{margin-top:22px}
 .compact .cmp-media .v5-frame{max-width:860px;margin:0 auto}
 @media (max-width:760px){.cfacts{grid-template-columns:1fr 1fr}.csum{grid-template-columns:1fr}}
@@ -6961,9 +6975,11 @@ em.hl{font-style:normal;color:var(--accent)}
       var cf = [['역할', t.role], ['인원', t.team], ['기여도', t.contrib], ['기간', t.period]].filter(function (x) { return x[1]; });
       var card = function (key, cls, label) { var z = SK(key); if (z < 0) return ''; return '<article class="cs-c ' + cls + '"><p class="cs-k">' + (label || key) + '</p><p class="cs-t">' + B(q + '.sum.' + z + '.t', v.sum[z].t) + '</p></article>'; };
       h += '<dl class="cfacts">' + cf.map(function (x) { return '<div><dt>' + x[0] + '</dt><dd>' + esc(x[1]) + '</dd></div>'; }).join('') + '</dl>' +
-        '<div class="csum">' + card('기획 의도', 'cs-intent') +
-        (v.tasks ? '<article class="cs-c cs-tasks"><p class="cs-k">내가 맡은 일</p><ul>' + v.tasks.map(function (x, k) { return '<li>' + B(q + '.tasks.' + k, x) + '</li>'; }).join('') + '</ul></article>' : '') +
-        card('만든 방식', 'cs-how') + card('결과', 'cs-res') + '</div>' +
+        (function () { var zi = SK('기획 의도'), cols = [];
+          if (v.tasks) cols.push(['맡은 일', '<ul>' + v.tasks.map(function (x, k) { return '<li>' + B(q + '.tasks.' + k, x) + '</li>'; }).join('') + '</ul>', '']);
+          [['만든 방식', ''], ['결과', ' res']].forEach(function (m) { var z = SK(m[0]); if (z >= 0) cols.push([m[0], '<p>' + B(q + '.sum.' + z + '.t', v.sum[z].t) + '</p>', m[1]]); });
+          return '<div class="cbrief">' + (zi >= 0 ? '<div class="cb-lead"><p class="cb-k">기획 의도</p><p class="cb-q">' + B(q + '.sum.' + zi + '.t', v.sum[zi].t) + '</p></div>' : '') +
+            '<div class="cb-cols">' + cols.map(function (c, k) { return '<section class="cb-col' + c[2] + '"><p class="cb-k"><span>' + pad(k + 1) + '</span>' + c[0] + '</p>' + c[1] + '</section>'; }).join('') + '</div></div>'; })() +
         '<div class="cmp-media">' + (v.media || []).map(function (b, k) { return blk(b, q + '.media.' + k); }).join('') + '</div>';
       if (v.extra && v.extra.length) h += '<div class="cmp-extra">' + v.extra.map(function (b, k) { return blk(b, q + '.extra.' + k); }).join('') + '</div>';
       h += '<footer class="d-foot"><a href="#/projects/' + at.i + '">← ' + esc(a.ko) + ' 목록</a><a class="next" href="#/e/' + nt.id + '">다음: ' + esc(nt.title) + ' →</a></footer></div>';
