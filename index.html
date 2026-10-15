@@ -1892,6 +1892,10 @@ em.hl{font-style:normal;color:var(--accent)}
 .vc .bub::before,.vc .bub::after{display:none!important}
 .vc .bub p{font-size:15.5px!important;line-height:1.65!important;font-weight:600}
 .vc figcaption{margin-top:8px!important;font-size:12.5px!important;color:var(--muted)!important}
+
+.lead-sub{margin:-6px 0 22px;max-width:520px;font-size:15.5px;line-height:1.65;color:#4A4F59}
+.how .hk{display:block;margin-bottom:4px;font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--accent)}
+.dw-tool .note b{margin-right:6px;color:var(--accent)}
 </style>
 </head>
 <body>
@@ -1916,6 +1920,7 @@ em.hl{font-style:normal;color:var(--accent)}
 <div class="hero-text">
 <h1 id="hero-title">Portfolio.</h1>
 <p class="lead" data-edit="multi">문제는 <font color="#2f5fd0">뾰족하게 정의하고,</font><br>솔루션은 <em class="hl">사용자의 관점</em>에서 찾아냅니다.</p>
+<p class="lead-sub" data-edit="multi">사용자 니즈를 데이터로 정의하고, 이해관계자를 조율해 실행과 검증까지 끌고 가는 서비스 기획자입니다.</p>
 <div class="hero-actions">
 <a class="btn solid" href="#/projects">프로젝트 보기</a>
 <a class="btn ghost" href="#/about">저를 소개합니다</a>
@@ -1934,9 +1939,10 @@ em.hl{font-style:normal;color:var(--accent)}
 <section class="home-sec" id="how" aria-labelledby="how-title">
 <div class="sec-row"><div><p class="eyebrow">How I work</p><h2 class="h-sec" id="how-title">오수연은 이렇게 일해요</h2></div></div>
 <ol class="how">
-<li><span class="hn">1</span><p data-edit="multi">근거가 약하면 <em class="hl">문제를 다시 정의</em>하고, 팀과 함께 답을 좁혀 갑니다.</p><div class="hw"><a href="#/e/impact">임팩트 프로젝트 →</a><a href="#/e/kakaopay">카카오페이 역기획 →</a></div></li>
-<li><span class="hn">2</span><p data-edit="multi">고객의 관점에서 생각하고, <font color="#2f5fd0">레퍼런스를 </font>저만의 관점으로 재해석합니다.</p><div class="hw"><a href="#/e/forevorite">포에버릿 →</a><a href="#/e/inthelocal">인더로컬 →</a></div></li>
-<li><span class="hn">3</span><p data-edit="multi">반복되는 불편은 <em class="hl">AI로 직접 도구를 만들어</em> 빠르게 효율화합니다.</p><div class="hw"><a href="#/e/daeone">데이원컴퍼니 →</a></div></li>
+<li><span class="hn">1</span><p data-edit="multi"><b class="hk">문제 구조화</b>근거가 약하면 <em class="hl">문제를 다시 정의</em>하고, 팀과 함께 답을 좁혀 갑니다.</p><div class="hw"><a href="#/e/impact">임팩트 프로젝트 →</a><a href="#/e/kakaopay">카카오페이 역기획 →</a></div></li>
+<li><span class="hn">2</span><p data-edit="multi"><b class="hk">사용자 니즈 정의</b>직접 고객이 되어 보고, <em class="hl">사용자의 불편</em>에서 상품과 서비스를 다시 설계합니다.</p><div class="hw"><a href="#/e/forevorite">포에버릿 →</a><a href="#/e/ongi">온기밥상 →</a></div></li>
+<li><span class="hn">3</span><p data-edit="multi"><b class="hk">이해관계자 조율 · 운영 개선</b>각자 아는 정보를 연결하고, 반복되는 문제는 <em class="hl">운영 기준</em>으로 만듭니다.</p><div class="hw"><a href="#/e/daeone">데이원컴퍼니 →</a><a href="#/e/inthelocal">인더로컬 →</a></div></li>
+<li><span class="hn">4</span><p data-edit="multi"><b class="hk">빠른 학습과 실행</b>필요한 도구는 직접 익혀 만들고, <em class="hl">써 본 사람의 피드백</em>으로 다시 고칩니다.</p><div class="hw"><a href="#/e/daeone">데이원컴퍼니 →</a></div></li>
 </ol>
 </section>
 
@@ -2527,6 +2533,9 @@ em.hl{font-style:normal;color:var(--accent)}
            }
           ]
          }
+        ],
+        "points": [
+         "리서치 규모: 사용자 인터뷰 □□명 · 설문 □□명"
         ]
        },
        {
@@ -2566,6 +2575,7 @@ em.hl{font-style:normal;color:var(--accent)}
          }
         ],
         "points": [
+         "기능 후보 □□개 중, ① 발견·진입·유지 중 어느 단계의 이탈을 줄이는지 ② 이미 하고 있는 결제·생활 행동에 바로 붙는지를 기준으로 3개를 골랐습니다.",
          "실제 출시나 지표 검증은 하지 않은 기획 단계입니다."
         ]
        }
@@ -4347,7 +4357,7 @@ em.hl{font-style:normal;color:var(--accent)}
         "visual": [
          {
           "type": "html",
-          "html": "<div class=\"dw-tools\">\n<article class=\"dw-tool\">\n<div class=\"tx\"><p class=\"k\"><span>AI<\/span>만족도 리포트 자동화<\/p><h4>반복되는 설문 정리·보고서 작성을 자동화하고, <em>파트 전체<\/em>가 쓰도록 배포<\/h4>\n<div class=\"dw-bars\"><div><span>기존<\/span><i style=\"--w:100%\"><\/i><b>30~40분<\/b><\/div><div class=\"af\"><span>자동화 후<\/span><i style=\"--w:14%\"><\/i><b>5분 이내<\/b><\/div><\/div>\n<a class=\"dw-link-btn\" href=\"report-sample.html\" target=\"_blank\" rel=\"noopener\">리포트 예시 보기 ↗<\/a><div class=\"dw-shot react\">{{img:images/daeone/03.jpg|동료 운영 매니저의 반응}}<\/div><\/div>\n<div class=\"vs\"><div class=\"dw-shot\">{{img:images/daeone/report-sample.jpg|가상 데이터로 다시 만든 리포트 화면}}<\/div><\/div>\n<\/article>\n<article class=\"dw-tool\">\n<div class=\"tx\"><p class=\"k\"><span>AI<\/span>과제 통합 대시보드 PoC<\/p><h4>여러 곳에 흩어진 과제를 <em>하나의 링크<\/em>에서 확인하도록<\/h4>\n<div class=\"dw-dots\"><div class=\"grid\"><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><\/div><span class=\"eq\">50명 × 8주 과제<\/span><span class=\"arr\">→<\/span><span class=\"one\">1개 링크<\/span><\/div>\n<p class=\"note\">담당자 인터뷰로 문제를 파악하고 제작 → 팀 전체 채널에 공유<\/p><\/div>\n<div class=\"vs\"><div class=\"dw-shot\">{{img:images/daeone/07.jpg|대시보드를 팀 전체 채널에 공유한 파트 리드의 메시지}}<\/div><\/div>\n<\/article>\n<article class=\"dw-tool wide\">\n<div class=\"tx\"><p class=\"k\"><span>AI<\/span>강사 추천 에이전트<\/p><h4>기획자 인터뷰로 <em>섭외 문제의 원인<\/em>부터 찾고, 추천 기준을 다시 설계<\/h4>\n<ol class=\"dw-flow\"><li>기획자 4명 인터뷰<\/li><li>원인: 기업 특성·강사 성향·전문 분야 미반영<\/li><li>강사 DB 분류 기준 재설계<\/li><li>목적 맞춤 추천 에이전트<\/li><\/ol>\n<div class=\"dw-kpi\"><div><b>4/4<\/b><span>테스터 기획자 전원 추천<\/span><\/div><div><b>3위<\/b><span>사내 해커톤 · 17팀 중<\/span><\/div><\/div><\/div>\n<div class=\"vs\"><div class=\"dw-shot\">{{img:images/daeone/05.jpg|강사 추천 에이전트: 조건 입력부터 후보 비교까지}}<\/div><div class=\"dw-shot\">{{img:images/daeone/06.jpg|일정 확인과 섭외 실행까지 같은 흐름 안에서}}<\/div><\/div>\n<\/article>\n<article class=\"dw-tool wide\">\n<div class=\"tx\"><p class=\"k\"><span class=\"sys\">체계화<\/span>노션 운영 매뉴얼<\/p><h4>반복되는 운영 업무를 <em>매뉴얼<\/em>로 만들어, 누가 맡아도 같은 품질로<\/h4>\n<ul class=\"dw-mlist\"><li>온라인 강의장 오픈·세팅<\/li><li>강의장 이동·출입 준비<\/li><li>현장 이슈와 해결 방법<\/li><\/ul>\n<p class=\"note\">다른 파트의 요청으로 운영 스터디도 추가 진행했습니다.<\/p><\/div>\n<div class=\"vs\"><div class=\"dw-shot\">{{img:images/daeone/manual-online.jpg|직접 만든 노션 운영 매뉴얼: 온라인 강의장 오픈 및 세팅}}<\/div><div class=\"dw-shot\">{{img:images/daeone/manual-move.jpg|직접 만든 노션 운영 매뉴얼: 강의장 이동 (민감 정보 모자이크)}}<\/div><\/div>\n<\/article>\n<\/div>"
+          "html": "<div class=\"dw-tools\">\n<article class=\"dw-tool\">\n<div class=\"tx\"><p class=\"k\"><span>AI<\/span>만족도 리포트 자동화<\/p><h4>반복되는 설문 정리·보고서 작성을 자동화하고, <em>파트 전체<\/em>가 쓰도록 배포<\/h4>\n<div class=\"dw-bars\"><div><span>기존<\/span><i style=\"--w:100%\"><\/i><b>30~40분<\/b><\/div><div class=\"af\"><span>자동화 후<\/span><i style=\"--w:14%\"><\/i><b>5분 이내<\/b><\/div><\/div>\n<a class=\"dw-link-btn\" href=\"report-sample.html\" target=\"_blank\" rel=\"noopener\">리포트 예시 보기 ↗<\/a><div class=\"dw-shot react\">{{img:images/daeone/03.jpg|동료 운영 매니저의 반응}}<\/div><\/div>\n<div class=\"vs\"><div class=\"dw-shot\">{{img:images/daeone/report-sample.jpg|가상 데이터로 다시 만든 리포트 화면}}<\/div><\/div>\n<\/article>\n<article class=\"dw-tool\">\n<div class=\"tx\"><p class=\"k\"><span>AI<\/span>과제 통합 대시보드 PoC<\/p><h4>여러 곳에 흩어진 과제를 <em>하나의 링크<\/em>에서 확인하도록<\/h4>\n<div class=\"dw-dots\"><div class=\"grid\"><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><i><\/i><\/div><span class=\"eq\">50명 × 8주 과제<\/span><span class=\"arr\">→<\/span><span class=\"one\">1개 링크<\/span><\/div>\n<p class=\"note\">담당자 인터뷰로 문제를 파악하고 제작 → 팀 전체 채널에 공유<\/p><p class=\"note\"><b>효과<\/b> 담당자의 진행 현황 확인 요청 □□건 → □□건 (과정당)<\/p><\/div>\n<div class=\"vs\"><div class=\"dw-shot\">{{img:images/daeone/07.jpg|대시보드를 팀 전체 채널에 공유한 파트 리드의 메시지}}<\/div><\/div>\n<\/article>\n<article class=\"dw-tool wide\">\n<div class=\"tx\"><p class=\"k\"><span>AI<\/span>강사 추천 에이전트<\/p><h4>기획자 인터뷰로 <em>섭외 문제의 원인<\/em>부터 찾고, 추천 기준을 다시 설계<\/h4>\n<ol class=\"dw-flow\"><li>기획자 4명 인터뷰<\/li><li>원인: 기업 특성·강사 성향·전문 분야 미반영<\/li><li>강사 DB 분류 기준 재설계<\/li><li>목적 맞춤 추천 에이전트<\/li><\/ol>\n<div class=\"dw-kpi\"><div><b>4/4<\/b><span>테스터 기획자 전원 추천<\/span><\/div><div><b>3위<\/b><span>사내 해커톤 · 17팀 중<\/span><\/div><\/div><\/div>\n<div class=\"vs\"><div class=\"dw-shot\">{{img:images/daeone/05.jpg|강사 추천 에이전트: 조건 입력부터 후보 비교까지}}<\/div><div class=\"dw-shot\">{{img:images/daeone/06.jpg|일정 확인과 섭외 실행까지 같은 흐름 안에서}}<\/div><\/div>\n<\/article>\n<article class=\"dw-tool wide\">\n<div class=\"tx\"><p class=\"k\"><span class=\"sys\">체계화<\/span>노션 운영 매뉴얼<\/p><h4>반복되는 운영 업무를 <em>매뉴얼<\/em>로 만들어, 누가 맡아도 같은 품질로<\/h4>\n<ul class=\"dw-mlist\"><li>온라인 강의장 오픈·세팅<\/li><li>강의장 이동·출입 준비<\/li><li>현장 이슈와 해결 방법<\/li><\/ul>\n<p class=\"note\"><b>효과<\/b> 신규 담당자가 혼자 운영하기까지 □□일 → □□일, 반복 문의 □□건 → □□건<br>다른 파트의 요청으로 운영 스터디도 추가 진행했습니다.<\/p><\/div>\n<div class=\"vs\"><div class=\"dw-shot\">{{img:images/daeone/manual-online.jpg|직접 만든 노션 운영 매뉴얼: 온라인 강의장 오픈 및 세팅}}<\/div><div class=\"dw-shot\">{{img:images/daeone/manual-move.jpg|직접 만든 노션 운영 매뉴얼: 강의장 이동 (민감 정보 모자이크)}}<\/div><\/div>\n<\/article>\n<\/div>"
          }
         ]
        },
@@ -4645,7 +4655,8 @@ em.hl{font-style:normal;color:var(--accent)}
         "points": [
          "신입으로 입사하자마자 '동인천에 로컬 커뮤니티를 만들라'는 미션을 받았습니다. 정해진 건 사업 목적과 예산뿐이라, 무엇을 만들지부터 직접 찾아야 했습니다.",
          "인천의 모임을 조사해 보니 대부분 한두 번 만나고 끝나는 행사, 친목 모임, 아니면 장기 유료 커뮤니티였습니다.",
-         "참여자는 같은 관심사로 더 깊이 들어갈 길이 없었고, 창작자는 공간·모객·운영 부담 때문에 시도 자체를 망설였습니다."
+         "참여자는 같은 관심사로 더 깊이 들어갈 길이 없었고, 창작자는 공간·모객·운영 부담 때문에 시도 자체를 망설였습니다.",
+         "그래서 목표를 '모임 수 늘리기'가 아니라 '처음 온 사람이 다음에도 오게 하기'로 잡고, 진입 부담이 가장 낮은 커피챗·원데이부터 열기로 했습니다."
         ],
         "visual": {
          "type": "pyramid",
@@ -4802,19 +4813,19 @@ em.hl{font-style:normal;color:var(--accent)}
        },
        {
         "id": "ops",
-        "label": "온보딩·현장 운영",
-        "claim": "호스트와 참여자에게 커뮤니티의 가치와 참여 원칙을 먼저 알렸습니다.",
+        "label": "운영 기준 만들기",
+        "claim": "현장에서 반복되는 문제를 유형으로 나누고, **대응 기준**을 먼저 정했습니다.",
         "steps": [
          {
-          "h": "온보딩 자료와 커뮤니티 소개 페이지를 만들었습니다",
-          "b": "호스트용 · 참여자용"
+          "h": "매번 말로 설명하던 참여 원칙을 온보딩 자료로 바꿨습니다",
+          "b": "호스트용 · 참여자용 소개 페이지"
          },
          {
-          "h": "일정·참여율·현장 진행 이슈에 대응했습니다",
-          "b": "호스트 일정 조율, 참여자 커뮤니케이션"
+          "h": "반복되는 이슈를 일정·참여·현장 진행으로 나눠 대응 기준을 정리했습니다",
+          "b": "호스트 일정 조율 · 참여자 안내 · 현장 진행 체크리스트"
          },
          {
-          "h": "현장을 촬영하고 결과를 정리해 결산 보고했습니다"
+          "h": "회차마다 촬영과 결산 보고로 결과를 남겨, 다음 회차 기획에 반영했습니다"
          }
         ]
        },
@@ -4823,8 +4834,9 @@ em.hl{font-style:normal;color:var(--accent)}
         "label": "결과와 개선",
         "claim": "모집 공고일·신청자·실제 참여자를 함께 보며 참여율이 떨어지는 원인을 찾고, 운영 방식을 표준화했습니다.",
         "points": [
-         "사전·운영·사후 단계별 업무 흐름을 정리해 운영 매뉴얼로 만들었습니다.",
-         "참여자 반응과 기존 방식의 장단점을 비교해 새 프로그램 형식을 설계했습니다."
+         "신청 대비 실제 참여율: □□% → □□% (운영 방식 표준화 이후)",
+         "사전·운영·사후 단계별 업무 흐름을 운영 매뉴얼로 만들어, 회차당 준비 시간을 □□시간 → □□시간으로 줄였습니다.",
+         "두 번 이상 참여한 사람 □□명 (전체 106명 중). 참여자 반응과 기존 방식의 장단점을 비교해 새 프로그램 형식을 설계했습니다."
         ],
         "visual": [
          {
@@ -5076,7 +5088,7 @@ em.hl{font-style:normal;color:var(--accent)}
        },
        {
         "k": "성과",
-        "t": "온라인 일주일, 오프라인 부스 하루로 홍보를 마치고 운영기를 공식 블로그에 올렸습니다.",
+        "t": "온라인 일주일, 오프라인 부스 하루로 홍보를 마쳤습니다. 부스 방문 □□명 · 이벤트 퀴즈 참여 □□명. 운영기는 공식 블로그에 올렸습니다.",
         "to": "run"
        }
       ],
@@ -5408,7 +5420,7 @@ em.hl{font-style:normal;color:var(--accent)}
        {
         "k": "결과",
         "ic": "chart",
-        "t": "다큐멘터리를 완성해 유튜브에 공개했습니다."
+        "t": "다큐멘터리를 완성해 유튜브에 공개했습니다 (조회수 □□회)."
        }
       ],
       "media": [
@@ -5538,7 +5550,7 @@ em.hl{font-style:normal;color:var(--accent)}
        {
         "k": "결과",
         "ic": "chart",
-        "t": "인터뷰·플레이리스트·리릭비디오 등 여러 편을 채널에 올렸습니다."
+        "t": "인터뷰 □편 · 플레이리스트 □편 · 리릭비디오 □편을 채널에 올렸습니다."
        }
       ],
       "media": [
@@ -5904,7 +5916,7 @@ em.hl{font-style:normal;color:var(--accent)}
        {
         "k": "결과",
         "ic": "chart",
-        "t": "쓴 기사는 아카데미 공식 블로그에 실렸습니다."
+        "t": "기사 □편이 아카데미 공식 블로그에 실렸습니다."
        }
       ],
       "media": [
@@ -6538,7 +6550,7 @@ em.hl{font-style:normal;color:var(--accent)}
        },
        {
         "k": "실행",
-        "t": "멘토 피드백과 고객 인터뷰로 타깃과 메시지를 다시 잡고, 블로그·인스타그램으로 시장 반응을 확인했습니다.",
+        "t": "멘토 피드백과 고객 인터뷰 □□명으로 타깃과 메시지를 다시 잡고, 블로그·인스타그램 반응(□□ → □□)으로 시장 반응을 확인했습니다.",
         "to": "target"
        },
        {
@@ -6792,7 +6804,7 @@ em.hl{font-style:normal;color:var(--accent)}
     if (state.editing) setEditable(true);
   }
 
-  var FEAT = ['forevorite', 'impact', 'daeone', 'inthelocal'];
+  var FEAT = ['inthelocal', 'daeone', 'impact', 'forevorite'];
   function pcard(t, a, ai, j, showCat) {
     var p = 'albums.' + ai + '.tracks.' + j, im = t.thumb || (t.hero && t.hero.img) || '';
     return '<li><a class="pc" href="#/e/' + t.id + '" style="--fc:' + a.color + '">' +
