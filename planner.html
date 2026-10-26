@@ -1932,6 +1932,8 @@ font[color]{color:inherit!important}
 @media (max-width:760px){.proc{grid-template-columns:1fr}.proc li{border-left:0;border-top:1px solid #DDE1E7;padding-left:0}.proc li:first-child{border-top:0}}
 .phs figure{max-width:170px!important}.phs{gap:14px!important}
 .shot.phone{grid-template-columns:220px minmax(0,1fr)!important}
+.gallery[style*="1fr"]{grid-template-columns:1fr!important}
+.gallery.two{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 </style>
 </head>
 <body>
@@ -2675,19 +2677,19 @@ font[color]{color:inherit!important}
          {
           "k": "대안 1 · 문제",
           "s": "한강 분리수거 개선",
-          "al": "버린 이유",
+          "al": "기각 사유",
           "a": "설문 90명 중 \"버리는 법을 몰라서\"는 6명뿐이었고, 배민이 바꿀 수 있는 지점도 없었습니다. 쓰레기가 만들어지는 주문 단계로 옮겼습니다."
          },
          {
           "k": "대안 2 · 해결",
           "s": "친환경 용기로 바꾸기",
-          "al": "버린 이유",
+          "al": "기각 사유",
           "a": "사장님 인터뷰에서 2~3배 비싸 쓰기 어렵다는 답이 반복됐습니다. 재질 대신 구성품의 양을 줄이는 쪽을 골랐습니다."
          },
          {
           "k": "대안 3 · 방식",
           "s": "가게마다 메뉴에 '반찬 선택' 옵션 추가",
-          "al": "버린 이유",
+          "al": "기각 사유",
           "a": "10개 가게 시범 운영에서, 반찬이 매일 바뀌거나 한 용기에 담기는 가게는 부담이 컸습니다. 모든 가게에 바로 적용되는 결제 화면 체크박스 하나를 최종안으로 정했습니다."
          }
         ]
@@ -3160,12 +3162,12 @@ font[color]{color:inherit!important}
       "sum": [
        {
         "k": "접근 방식",
-        "t": "리서치 가이드와 로직 트리를 만들어 도구로 쓰고, 리서치 인사이트를 시각화해 팀과 공유하며 문제의 논리를 만들어 갔습니다.",
-        "to": "did"
+        "t": "퍼널 분석으로 이탈 구간을 정의하고, 인터뷰·벤치마킹 근거로 진입 순서를 바꾼 TO-BE 플로우를 설계했습니다.",
+        "to": "problem"
        },
        {
         "k": "문제",
-        "t": "카카오페이 사용자는 결제에서 멈추고 증권까지 넘어오지 않습니다. 팀은 원인을 모른 채 \"전환율 올리기\"부터 하려 했습니다.",
+        "t": "MAU 2,400만 중 94.4%가 결제에서 멈추고 투자로 넘어오지 않습니다. 팀은 원인 분석 없이 \"전환율 올리기\"부터 하려 했습니다.",
         "to": "problem"
        },
        {
@@ -3180,54 +3182,21 @@ font[color]{color:inherit!important}
        },
        {
         "k": "결과",
-        "t": "이탈 원인 3개(발견·진입·유지)에 기능 3개를 1:1로 대응시킨 개선안을 제안했습니다. 출시·지표 검증 전 기획 단계입니다.",
-        "to": "learn"
+        "t": "최종 발표 15장: 문제 정의 → 인터뷰 → 벤치마킹 → 솔루션 3개 → AS-IS/TO-BE 플로우 → 리텐션 설계. 출시·지표 검증 전 기획 단계입니다.",
+        "to": "flow"
        }
       ],
       "secs": [
        {
-        "id": "problem",
-        "label": "문제 정의",
-        "claim": "MAU 2,400만 중 증권 거래 사용자는 135만, 결제 → 투자 전환율은 약 5.6%입니다.",
+        "id": "bm",
+        "label": "현황 분석",
+        "claim": "카카오페이의 수익 축은 결제에서 증권으로 옮겨가고 있었지만, 증권 앱 MAU는 377만으로 토스증권(1,137만)의 약 3분의 1이었습니다.",
         "points": [
-         "결제 사용자 대비 증권 거래 전환율은 약 5.6%입니다(135만 ÷ 2,400만).",
-         "회사의 돈은 결제보다 금융에서 나오는데, 사용자는 결제에서 멈춥니다.",
-         "경영진 지표도 사용자 수에서 1인당 매출로 옮겨 가고 있었습니다."
+         "결제 마진 1~2% vs 금융 마진 10~20%: 성장하려면 결제 사용자를 증권 사용자로 전환해야 하는 구조",
+         "경영진 지표가 사용자 수에서 1인당 매출(ARPU 7,690원 → 10,075원)로 이동",
+         "포지셔닝: 생활금융 트래픽은 높지만 투자 서비스로서의 존재감은 약함"
         ],
         "visual": [
-         {
-          "type": "funnel",
-          "title": "어디서 떨어지는가",
-          "note": "가운데 두 단계는 VOC와 내부 자료로 세운 가설 수치",
-          "rows": [
-           {
-            "l": "카카오페이 사용자",
-            "v": "2,400만",
-            "w": 100,
-            "c": "#2F5FD0"
-           },
-           {
-            "l": "증권 기능을 안다",
-            "v": "1,950만",
-            "w": 81,
-            "c": "#6E93E3",
-            "hyp": 1
-           },
-           {
-            "l": "증권 화면에 들어간다",
-            "v": "1,200만",
-            "w": 50,
-            "c": "#A7C0F0",
-            "hyp": 1
-           },
-           {
-            "l": "실제로 거래한다",
-            "v": "135만",
-            "w": 6,
-            "c": "#22252B"
-           }
-          ]
-         },
          {
           "type": "cols",
           "items": [
@@ -3268,16 +3237,124 @@ font[color]{color:inherit!important}
             ]
            }
           ]
+         },
+         {
+          "type": "gallery",
+          "contain": 1,
+          "items": [
+           {
+            "img": "images/kakaopay/deck/s02.jpg",
+            "cap": "Overview: 11년 만의 흑자 전환, 성장 축은 증권"
+           },
+           {
+            "img": "images/kakaopay/deck/s03.jpg",
+            "cap": "경쟁사 분석: 포지셔닝 맵, 증권 앱 MAU 비교"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "id": "problem",
+        "label": "문제 정의",
+        "claim": "MAU 2,400만 중 94.4%가 결제에서 멈추고 투자로 넘어오지 않습니다.",
+        "points": [
+         "증권 계좌 보유자 약 800만 중 실제 활성 투자자는 약 200만으로, 가장 큰 이탈은 '계좌 보유 → 첫 거래' 구간",
+         "주식모으기는 활성 투자자의 80%가 쓰는 검증된 입문 상품 → 상품이 아니라 유입 경로가 문제라고 정의"
+        ],
+        "visual": [
+         {
+          "type": "funnel",
+          "title": "결제 → 투자 퍼널",
+          "note": "출처: 팀 최종 발표 자료",
+          "rows": [
+           {
+            "l": "카카오페이 MAU",
+            "v": "2,400만",
+            "w": 100,
+            "c": "#2F5FD0"
+           },
+           {
+            "l": "증권 계좌 보유",
+            "v": "약 800만",
+            "w": 34,
+            "c": "#6E93E3"
+           },
+           {
+            "l": "실제 활성 투자자",
+            "v": "약 200만",
+            "w": 9,
+            "c": "#A7C0F0"
+           },
+           {
+            "l": "주식모으기 사용자",
+            "v": "160만",
+            "w": 7,
+            "c": "#22252B"
+           }
+          ]
+         },
+         {
+          "type": "image",
+          "img": "images/kakaopay/deck/s06.jpg",
+          "t": "최종 발표: 문제 정의",
+          "h": 760
+         }
+        ]
+       },
+       {
+        "id": "research",
+        "label": "사용자 인터뷰",
+        "claim": "20~30대 카카오페이 사용자 6명을 인터뷰해 투자 진입을 막는 지점을 확인했습니다.",
+        "points": [
+         "대부분 투자에 관심은 있지만 인지 → 계좌 개설 → 종목 선택 → 손실 공포 단계에서 첫 거래를 하지 못함",
+         "직접 담당: 리서치 가이드 작성(조사 목적·범위·질문 통일), 로직 트리 워크숍 진행"
+        ],
+        "visual": [
+         {
+          "type": "vsteps",
+          "items": [
+           {
+            "h": "리서치 가이드를 만들었습니다",
+            "b": "6명이 같은 기준으로 조사하도록 목적·범위·역할 분담을 한 페이지에 정리했습니다.",
+            "img": "images/kakaopay/doc-research.jpg"
+           },
+           {
+            "h": "로직 트리로 원인을 쪼갰습니다",
+            "b": "2,400만 명 중 135만 명이라는 갭의 원인을 단계별로 나눠 보는 로직 트리를 만들어, 워크숍에서 함께 채웠습니다.",
+            "img": "images/kakaopay/doc-problem.jpg"
+           }
+          ]
+         },
+         {
+          "type": "image",
+          "img": "images/kakaopay/deck/s04.jpg",
+          "t": "최종 발표: 사용자 인터뷰 6명",
+          "h": 760
+         }
+        ]
+       },
+       {
+        "id": "journey",
+        "label": "페르소나·여정",
+        "claim": "페르소나(29세 직장인)의 인지 → 관심 → 시도 → 이탈 → 재유입 여정에서 감정 저점은 시도·이탈 구간이었습니다.",
+        "points": [
+         "시도 구간 페인포인트: 계좌 개설·신분증 촬영 부담, 종목 선택 막막함",
+         "이탈 구간 페인포인트: 하락 시 이유를 몰라 생기는 손실 공포"
+        ],
+        "visual": [
+         {
+          "type": "image",
+          "img": "images/kakaopay/deck/s05.jpg",
+          "t": "최종 발표: 페르소나와 사용자 여정",
+          "h": 760
          }
         ]
        },
        {
         "id": "hypo",
-        "label": "가설",
-        "claim": "이탈 원인은 관심 부족이 아니라 발견·진입·유지 단계별 장벽이라는 가설을 세웠습니다.",
-        "points": [
-         "유저 인터뷰에서 반복된 이탈 원인을 세 가지로 묶었습니다."
-        ],
+        "label": "이탈 원인",
+        "claim": "인터뷰에서 반복된 이탈 원인을 발견·진입·유지 3단계로 정리했습니다.",
         "visual": [
          {
           "type": "quotes",
@@ -3297,40 +3374,34 @@ font[color]{color:inherit!important}
           ]
          },
          {
-          "type": "gallery",
-          "items": [
-           {
-            "img": "images/kakaopay/final-04-journey.jpg",
-            "cap": "페르소나와 사용자 여정: 시도·이탈 구간의 페인포인트"
-           }
-          ],
-          "contain": 1
+          "type": "image",
+          "img": "images/kakaopay/deck/s07.jpg",
+          "t": "최종 발표: 이탈 원인 분석",
+          "h": 760
          }
         ]
        },
        {
-        "id": "did",
-        "label": "접근 방식",
-        "claim": "리서치 가이드로 6명의 조사 범위를 나누고, 로직 트리 워크숍으로 원인을 구조화했습니다.",
-        "team": "화면 디자인, 프로토타입 제작, 경쟁사·VOC 2차 리서치",
+        "id": "bench",
+        "label": "벤치마킹",
+        "claim": "유입은 잔돈 투자, 리텐션은 캐릭터 육성 사례를 분석해 솔루션 근거로 썼습니다.",
+        "points": [
+         "유입: 알리페이 위어바오·로빈후드 라운드업·에이콘스: 결제 잔돈을 자동 투자로 연결해 진입 장벽 제거",
+         "리텐션: 케이뱅크 돈나무·네이버페이 페이펫·토스 고양이: 출석·미션형 캐릭터 육성으로 재방문 유도"
+        ],
+        "team": "케이스 스터디 조사",
         "visual": [
          {
-          "type": "vsteps",
+          "type": "gallery",
+          "contain": 1,
           "items": [
            {
-            "h": "리서치 가이드를 만들었습니다",
-            "b": "6명이 같은 기준으로 조사하도록 목적·범위·역할 분담을 한 페이지에 정리했습니다.",
-            "img": "images/kakaopay/doc-research.jpg"
+            "img": "images/kakaopay/deck/s08.jpg",
+            "cap": "유입 케이스 스터디"
            },
            {
-            "h": "로직 트리로 원인을 쪼갰습니다",
-            "b": "2,400만 명 중 135만 명이라는 갭의 원인을 단계별로 나눠 보는 로직 트리를 만들어, 워크숍에서 함께 채웠습니다.",
-            "img": "images/kakaopay/doc-problem.jpg"
-           },
-           {
-            "h": "인사이트를 시각화해 공유했습니다",
-            "b": "리서치 결과에서 뽑은 인사이트와 진행 상황을 한눈에 보이게 정리해 공유하고, 팀원들과 논리를 다듬었습니다.",
-            "img": "images/kakaopay/doc-report.jpg"
+            "img": "images/kakaopay/deck/s09.jpg",
+            "cap": "리텐션 케이스 스터디"
            }
           ]
          }
@@ -3338,7 +3409,7 @@ font[color]{color:inherit!important}
        },
        {
         "id": "solve",
-        "label": "해결",
+        "label": "솔루션",
         "claim": "이탈 단계별로 기능 1개씩 대응했습니다: 잔돈 투자(발견·진입), 안심 패키지(유지), 페니팜 챌린지(재방문).",
         "visual": [
          {
@@ -3362,18 +3433,60 @@ font[color]{color:inherit!important}
           ]
          },
          {
-          "type": "gallery",
-          "contain": 1,
-          "items": [
-           {
-            "img": "images/kakaopay/final-05-case.jpg",
-            "cap": "근거 사례: 알리페이·로빈후드·에이콘스의 잔돈 투자"
-           }
-          ]
+          "type": "image",
+          "img": "images/kakaopay/deck/s10.jpg",
+          "t": "최종 발표: 솔루션 개요",
+          "h": 760
          }
-        ],
+        ]
+       },
+       {
+        "id": "flow",
+        "label": "AS-IS → TO-BE 플로우",
+        "claim": "계좌 개설을 첫 단계에서 마지막 단계로 옮기고, 결제 완료 화면에서 투자를 제안하는 흐름으로 바꿨습니다.",
         "points": [
-         "실제 출시나 지표 검증은 하지 않은 기획 단계입니다."
+         "AS-IS: 증권 탭 진입 → 계좌 개설 안내 → 신분증 촬영 → 주식 선택 → 금액 설정. 투자 동기가 생기기 전에 절차 부담이 먼저 옴",
+         "TO-BE 진입점: 결제 완료 넛지·홈 넛지에서 '잔돈 굴리기' 제안 (예: 4,700원 결제 → 300원 자동 투자)",
+         "TO-BE 순서: 챌린지 소개 → 종목 선택 → 금액 설정 → 계좌 개설(카카오 인증 재활용, 30초) → 첫 주주 완료"
+        ],
+        "team": "와이어프레임·하이파이 화면 디자인",
+        "visual": [
+         {
+          "type": "image",
+          "img": "images/kakaopay/deck/s11.jpg",
+          "t": "AS-IS: 기존 플로우",
+          "h": 760
+         },
+         {
+          "type": "image",
+          "img": "images/kakaopay/deck/s12.jpg",
+          "t": "TO-BE: 결제·정산 완료 시점의 투자 제안",
+          "h": 760
+         },
+         {
+          "type": "image",
+          "img": "images/kakaopay/deck/s13.jpg",
+          "t": "TO-BE: 개선 플로우",
+          "h": 760
+         }
+        ]
+       },
+       {
+        "id": "reward",
+        "label": "리텐션 설계",
+        "claim": "레벨업 조건을 수익률이 아닌 '고구마 개수 + 투자 횟수'로 정의해, 손실 구간에도 성장이 멈추지 않게 했습니다.",
+        "points": [
+         "Lv.1 고구마 0~9 / Lv.2 10~19·투자 5회 / Lv.3 20~49·투자 13회 / Lv.4 50·투자 26회 완주",
+         "주가 하락 시에도 레벨이 유지돼, 손실 구간 이탈을 캐릭터 성장으로 방어"
+        ],
+        "team": "캐릭터·화면 디자인",
+        "visual": [
+         {
+          "type": "image",
+          "img": "images/kakaopay/deck/s14.jpg",
+          "t": "TO-BE: 4단계 레벨과 보상",
+          "h": 760
+         }
         ]
        },
        {
@@ -3382,14 +3495,14 @@ font[color]{color:inherit!important}
         "claim": "검토한 대안 2개와 기각 사유",
         "cases": [
          {
-          "k": "포기한 대안 1",
+          "k": "대안 1",
           "s": "\"전환율 올리기\"부터 시작하기",
           "a": "원인을 모른 채 숫자부터 올리면 어느 단계를 고쳐야 할지 알 수 없었습니다. 질문을 \"왜 안 넘어오나\"로 바꾸고, 로직 트리로 단계별 원인부터 쪼갰습니다."
          },
          {
-          "k": "포기한 대안 2",
+          "k": "대안 2",
           "s": "투자 상품을 더 만들기",
-          "al": "버린 이유",
+          "al": "기각 사유",
           "a": "인터뷰에서 반복된 이탈 원인은 상품 부족이 아니라 몰라서(발견), 어려워서(진입), 무서워서(유지)였습니다. 그래서 결론을 \"문제는 투자 상품이 아니라 투자 발견성\"으로 정리했습니다."
          },
          {
@@ -3403,18 +3516,18 @@ font[color]{color:inherit!important}
        {
         "id": "learn",
         "label": "회고",
-        "claim": "한계: 출시·지표 검증 전 단계이며, 퍼널 중간 2단계 수치는 가설입니다.",
+        "claim": "한계: 출시·지표 검증 전 기획 단계입니다.",
         "points": [
-         "가운데 두 퍼널 수치는 가설입니다. 실제 데이터가 있다면 단계별 이탈률부터 확인해, 가장 크게 막히는 단계 하나에 집중하겠습니다.",
-         "기능 3개를 한 번에 설계하기보다, 잔돈 투자 하나를 결제 완료 화면에 진입 버튼으로만 띄워 클릭률로 '발견' 가설부터 검증하겠습니다.",
-         "검증한다면 볼 지표: 결제 → 증권 첫 거래 전환율, 첫 거래 후 4주 유지율."
+         "실제 데이터가 있다면 '계좌 보유 → 첫 거래' 구간 이탈률부터 확인해, 가장 큰 이탈 단계에 먼저 집중하겠습니다.",
+         "기능 3개를 한 번에 설계하기보다, 결제 완료 화면 넛지 하나로 클릭률을 측정해 '발견' 가설부터 검증하겠습니다.",
+         "검증 지표: 결제 → 증권 첫 거래 전환율, 첫 거래 후 4주 유지율."
         ]
        }
       ],
       "outputs": [
        {
         "type": "slides",
-        "title": "최종 발표 자료 (팀) · 12장",
+        "title": "최종 발표 자료 전체 (팀) · 15장",
         "items": [
          {
           "img": "images/kakaopay/deck/s01.jpg",
@@ -3422,23 +3535,23 @@ font[color]{color:inherit!important}
          },
          {
           "img": "images/kakaopay/deck/s02.jpg",
-          "cap": "Overview: 11년 만의 흑자 전환, 성장 축은 증권"
+          "cap": "Overview"
          },
          {
           "img": "images/kakaopay/deck/s03.jpg",
-          "cap": "경쟁사 분석: 포지셔닝 맵, 증권 앱 MAU"
+          "cap": "경쟁사 분석"
          },
          {
           "img": "images/kakaopay/deck/s04.jpg",
-          "cap": "사용자 인터뷰: 20~30대 6명"
+          "cap": "사용자 인터뷰"
          },
          {
           "img": "images/kakaopay/deck/s05.jpg",
-          "cap": "페르소나 & 사용자 여정"
+          "cap": "페르소나·사용자 여정"
          },
          {
           "img": "images/kakaopay/deck/s06.jpg",
-          "cap": "문제 정의: 결제 → 투자 퍼널"
+          "cap": "문제 정의"
          },
          {
           "img": "images/kakaopay/deck/s07.jpg",
@@ -3446,19 +3559,31 @@ font[color]{color:inherit!important}
          },
          {
           "img": "images/kakaopay/deck/s08.jpg",
-          "cap": "케이스 스터디: 유입(알리페이·로빈후드·에이콘스)"
+          "cap": "케이스 스터디: 유입"
          },
          {
           "img": "images/kakaopay/deck/s09.jpg",
-          "cap": "케이스 스터디: 리텐션(케이뱅크·네이버페이·토스)"
+          "cap": "케이스 스터디: 리텐션"
          },
          {
           "img": "images/kakaopay/deck/s10.jpg",
-          "cap": "솔루션 개요: 유입·리텐션·이탈 방지"
+          "cap": "솔루션 개요"
          },
          {
           "img": "images/kakaopay/deck/s11.jpg",
-          "cap": "AS-IS 기존 플로우: 계좌 개설이 먼저"
+          "cap": "AS-IS 기존 플로우"
+         },
+         {
+          "img": "images/kakaopay/deck/s12.jpg",
+          "cap": "TO-BE 투자 제안 시점"
+         },
+         {
+          "img": "images/kakaopay/deck/s13.jpg",
+          "cap": "TO-BE 개선 플로우"
+         },
+         {
+          "img": "images/kakaopay/deck/s14.jpg",
+          "cap": "TO-BE 레벨과 보상"
          },
          {
           "img": "images/kakaopay/deck/s15.jpg",
@@ -3486,32 +3611,32 @@ font[color]{color:inherit!important}
        {
         "d": "2026.05",
         "t": "현황 분석",
-        "m": "시장·BM 분석, 경쟁사(토스·네이버페이) 비교",
-        "o": "BM 심층 분석 리포트"
+        "m": "BM·시장 분석, 경쟁사(토스·네이버페이) 비교",
+        "o": "BM 심층 분석, 포지셔닝 맵"
        },
        {
         "d": "2026.05",
         "t": "문제 정의",
-        "m": "MAU → 증권 거래 퍼널 분석, 로직 트리 워크숍",
-        "o": "문제 정의서"
+        "m": "결제 → 투자 퍼널 분석, 로직 트리 워크숍",
+        "o": "문제 정의: 유입 경로 문제"
        },
        {
         "d": "2026.05",
         "t": "사용자 리서치",
         "m": "리서치 가이드 작성, 20~30대 6명 인터뷰",
-        "o": "페르소나·저니맵, 이탈 원인 3개"
+        "o": "페르소나·여정, 이탈 원인 3개"
        },
        {
         "d": "2026.06",
         "t": "벤치마킹",
-        "m": "알리페이·로빈후드·에이콘스(유입), 케이뱅크·네이버페이·토스(리텐션)",
-        "o": "케이스 스터디"
+        "m": "유입 3개·리텐션 3개 서비스 케이스 스터디",
+        "o": "솔루션 근거"
        },
        {
         "d": "2026.06",
-        "t": "솔루션 설계",
-        "m": "AS-IS 플로우 분석, IA, 와이어프레임·하이파이(팀)",
-        "o": "기능 3개, 화면 설계"
+        "t": "솔루션·플로우 설계",
+        "m": "AS-IS 플로우 분석, TO-BE 플로우, 레벨 설계",
+        "o": "기능 3개, 개선 플로우, 화면 설계(팀)"
        },
        {
         "d": "2026.06",
@@ -3597,7 +3722,7 @@ font[color]{color:inherit!important}
          {
           "k": "검토한 대안",
           "s": "분야 키워드가 맞는 강사를 정확히 찾아 주기",
-          "al": "버린 이유",
+          "al": "기각 사유",
           "a": "인터뷰에서 기획자는 키워드가 맞아도 '이 고객사에 믿고 보낼 수 있는지' 확신이 없으면 쓰지 않는다고 했습니다."
          },
          {
@@ -4015,13 +4140,13 @@ font[color]{color:inherit!important}
          {
           "k": "대안 1 · 타깃",
           "s": "액티브 시니어 전체",
-          "al": "버린 이유",
+          "al": "기각 사유",
           "a": "60대가 1인 가구가 된 가장 큰 이유는 배우자 사망이었습니다. 혼밥·비싼 식재료·끊긴 관계가 한 사람에게 겹치는 '사별 후 혼자 사는 여성'으로 좁혔습니다."
          },
          {
           "k": "대안 2 · 방향",
           "s": "시니어 여가 큐레이션 플랫폼",
-          "al": "버린 이유",
+          "al": "기각 사유",
           "a": "경쟁 서비스 분석 결과 여가·교육 영역에는 이미 오뉴·교원라이프·큐리어스 등이 있었고, 사별 후 1인 가구의 식사·관계 영역은 비어 있었습니다. 식사와 관계를 함께 다루는 방향으로 전환했습니다."
          },
          {
@@ -4495,7 +4620,7 @@ font[color]{color:inherit!important}
          {
           "k": "검토한 범위",
           "s": "업체·지방정부·연구기관을 한 번에 만족시키기",
-          "al": "버린 이유",
+          "al": "기각 사유",
           "a": "세 집단의 목적이 달라(원료 확보, 정보 공시, 데이터 활용) 한 화면에 담으면 누구에게도 맞지 않았습니다."
          },
          {
@@ -5784,7 +5909,7 @@ font[color]{color:inherit!important}
          {
           "k": "검토한 대안",
           "s": "가격을 한 번에 올리기",
-          "al": "버린 이유",
+          "al": "기각 사유",
           "a": "후기와 포트폴리오가 쌓이기 전에 가격만 올리면 예약이 끊길 거라고 봤습니다."
          },
          {
@@ -5964,7 +6089,7 @@ font[color]{color:inherit!important}
   };
   var SECIC = { problem: 'target', hypo: 'bulb', did: 'user', solve: 'puzzle', result: 'chart', learn: 'sparkle', output: 'folder', scope: 'layers', align: 'users', issue: 'alert',
     improve: 'refresh', system: 'book', goal: 'flag', design: 'grid', promo: 'megaphone', ops: 'calendar', archive: 'archive', concept: 'bulb', run: 'play', evidence: 'search',
-    impact: 'chart', intent: 'pen', make: 'film', cause: 'search', action: 'play', target: 'target', start: 'flag', try: 'play', tools: 'puzzle', duties: 'layers', comp1: 'target', comp2: 'users', research: 'search', role: 'user', bm: 'layers', pm: 'target', comm: 'users', plan: 'chart', ax: 'sparkle', core: 'star', sched: 'clock', pivot: 'refresh', stake: 'users', journey: 'layers', funnel: 'chart', redesign: 'refresh' };
+    impact: 'chart', intent: 'pen', make: 'film', cause: 'search', action: 'play', target: 'target', start: 'flag', try: 'play', tools: 'puzzle', duties: 'layers', comp1: 'target', comp2: 'users', research: 'search', role: 'user', bm: 'layers', pm: 'target', comm: 'users', plan: 'chart', ax: 'sparkle', core: 'star', sched: 'clock', pivot: 'refresh', stake: 'users', journey: 'layers', funnel: 'chart', redesign: 'refresh', bench: 'search', flow: 'refresh', reward: 'star' };
   function icon(n, cls) { return '<svg class="' + (cls || 'ic') + '" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' + (IC[n] || IC.folder) + '</svg>'; }
   var FOLDER = '<svg class="fold-ic" viewBox="0 0 64 52" aria-hidden="true"><path d="M2 8a6 6 0 0 1 6-6h14l6 6h28a6 6 0 0 1 6 6v30a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6z" fill="var(--fc)" stroke="rgba(34,37,43,.55)" stroke-width="1.6"/><path d="M2 18h60" stroke="rgba(34,37,43,.25)" stroke-width="1.4"/></svg>';
   /* ---------- 분야 폴더 ---------- */
